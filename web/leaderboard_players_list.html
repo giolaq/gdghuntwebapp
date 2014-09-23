@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<link rel="import" href="../packages/polymer/polymer.html">
+<link href="packages/core_elements/core_icons.html" rel="import">
+<link rel="import" href="packages/core_elements/core_menu.html">
+    
+<link rel="import" href="packages/paper_elements/paper_fab.html">
+<link rel="import" href="packages/paper_elements/paper_item.html">
+
+<polymer-element name="leaderboard-players-list">
+
+  <template>
+      <h1>Leaderboard Players List</h1>
+  
+      <paper-fab icon="refresh" on-click="{{populateList}}"></paper-fab>
+      <core-menu>
+            <template repeat="{{entry in leaderboardPlayersList}}">
+            <p>
+               <img _src="{{entry.player.avatarImageUrl}}" alt="{{entry.player.displayName}}" height="42" width="42">
+               <paper-item label="{{entry.player.displayName}} "> {{entry.formattedScore}} </paper-item>
+            </p>         
+            </template>
+      </core-menu>
+           </template>
+  
+  <script type="application/dart" src="leaderboard_players_list.dart"></script>
+
+</polymer-element>

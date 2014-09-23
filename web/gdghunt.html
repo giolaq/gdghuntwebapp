@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample app</title>
+
+    <!-- include the web_components polyfills with support for Dart. -->
+    <script src="packages/web_components/platform.js"></script>
+    <script src="packages/web_components/dart_support.js"></script>
+    
+    <link rel="import" href="packages/core_elements/core_scaffold.html">
+    <link rel="import" href="packages/core_elements/core_item.html">
+    
+    <link rel="import" href="packages/core_elements/core_toolbar.html">
+    <link rel="import" href="packages/core_elements/core_icon_button.html">
+
+    <link rel="import" href="leaderboard_players_list.html">
+        
+    <link rel="stylesheet" href="gdghunt.css">
+  </head>
+  <body unresolved>
+  <core-scaffold>
+  <core-header-panel navigation flex mode="seamed">
+    <core-toolbar>Menu</core-toolbar>
+    <core-menu theme="core-light-theme">
+      <core-item icon="settings" label="item1"></core-item>
+      <core-item icon="settings" label="item2"></core-item>
+    </core-menu>
+  </core-header-panel>
+  <div tool>Leaderboard Players List</div>
+  <div>
+  <leaderboard-players-list></leaderboard-players-list>
+  </div>
+</core-scaffold>
+        
+   
+
+    <!-- bootstrap polymer -->
+    <script type="application/dart">export 'package:polymer/init.dart';</script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
