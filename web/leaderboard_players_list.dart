@@ -13,6 +13,8 @@ class LeaderboardPlayersList extends PolymerElement {
   
   @observable List<LeaderboardEntry> leaderboardPlayersList = toObservable([]);
 
+  @observable String leaderboardName = toObservable([]);
+
   LeaderboardPlayersList.created() : super.created(); 
   
 
@@ -24,6 +26,10 @@ class LeaderboardPlayersList extends PolymerElement {
          flow.clientViaUserConsent().then((auth.AuthClient client) {
 
            var game = new GamesApi(client);
+           
+           game.leaderboards.get("<LEADERBOARD_ID").then( (Leaderboard leaderboard) {
+             leaderboardName = leaderboard.name;
+           });
 
            game.scores.list("<LEADERBOARD_ID>", 'public', 'all_time').then((LeaderboardScores scores) {
                leaderboardPlayersList = scores.items;
